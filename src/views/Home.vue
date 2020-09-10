@@ -2,9 +2,7 @@
     <div class="home">
         <img alt="Vue logo"
              src="../assets/logo.png">
-        <p>
-            <a-button type="primary">Hello</a-button>
-        </p>
+        <h1>Segma Vue Components typescript</h1>
     </div>
 </template>
 
@@ -15,3 +13,8 @@ export default defineComponent({
     name: 'Home',
 });
 </script>
+<style lang="less" scoped>
+.home {
+    text-align: center;
+}
+</style>
