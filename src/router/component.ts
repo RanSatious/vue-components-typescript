@@ -7,6 +7,18 @@ const component: IMetaOption[] = [
         doc: '',
         name: 'button',
         section: []
+    },
+    {
+        title: 'IconFont SVG图标',
+        type: RouteType.Component,
+        doc: '',
+        name: 'icon-font',
+        section: [
+            {
+                name: 'basic',
+                title: '基本用法'
+            }
+        ]
     }
 ];
 

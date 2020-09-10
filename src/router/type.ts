@@ -7,10 +7,15 @@ export enum RouteType {
     Section = 'section'
 }
 
+export interface ISection {
+    name: string;
+    title: string;
+}
+
 export interface IMetaOption {
     title: string;
-    type: RouteType,
-    doc?: string,
-    name?: string,
-    section?: string[]
+    type: RouteType;
+    doc?: string;
+    name?: string;
+    section?: ISection[];
 }
