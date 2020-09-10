@@ -19,6 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import NavMenu from './Menu.vue';
+
 export default defineComponent({
     name: 'DefaultLayout',
     components: {
@@ -27,6 +28,8 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
+@import '../assets/css/scroll.less';
+
 .ant-layout {
     height: 100%;
 }
@@ -52,10 +55,13 @@ export default defineComponent({
     padding: 10px;
 
     > .content {
+        .scroll-bar();
+
         box-sizing: border-box;
         background-color: #fff;
         padding: 10px;
         height: 100%;
+        overflow: auto;
     }
 }
 </style>

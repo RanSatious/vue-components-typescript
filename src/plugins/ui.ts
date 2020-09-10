@@ -1,4 +1,4 @@
-import { Button, Form, Modal, Input, Layout, Radio, Spin } from 'ant-design-vue';
+import { Button, Form, Modal, Input, Layout, Radio, Spin, Table, Divider } from 'ant-design-vue';
 import { App } from 'vue';
 
 export default <T>(app: App<T>) => {
@@ -9,4 +9,6 @@ export default <T>(app: App<T>) => {
     app.use(Layout);
     app.use(Radio);
     app.use(Spin);
+    app.use(Table);
+    app.use(Divider);
 };

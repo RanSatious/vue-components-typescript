@@ -5,8 +5,7 @@
             <h2>{{item.title}}</h2>
             <section class="section-code">
                 <component :is="item.component"
-                           :ref="item.name"
-                           @hook:mounted="onMounted(item)">
+                           :ref="item.name">
                 </component>
             </section>
         </template>
@@ -86,6 +85,13 @@ export default defineComponent({
 
     &:hover {
         box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5);
+    }
+}
+
+.page {
+    h2:not(:first-child) {
+        margin: 40px 0 20px 0;
+        font-size: 18px;
     }
 }
 </style>

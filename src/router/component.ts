@@ -24,6 +24,34 @@ const component: IMetaOption[] = [
                 title: '基本用法'
             }
         ]
+    },
+    {
+        title: 'TableAction 表格操作列',
+        type: RouteType.Component,
+        doc: '',
+        name: 'table-action',
+        section: [
+            {
+                name: 'basic',
+                title: '基本用法'
+            },
+            {
+                name: 'disable',
+                title: '禁用状态'
+            },
+            {
+                name: 'icon',
+                title: '使用图标'
+            },
+            {
+                name: 'show',
+                title: '显示/隐藏'
+            },
+            {
+                name: 'slot',
+                title: '使用插槽'
+            }
+        ]
     }
 ];
 
