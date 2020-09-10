@@ -13,6 +13,7 @@ module.exports = {
             {
                 order: ['template', 'script', 'style']
             }
-        ]
+        ],
+        'vue/no-duplicate-attributes': 'off',
     }
 };

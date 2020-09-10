@@ -31,7 +31,7 @@ export default defineComponent({
         const types = computed(() => {
             return Object.values(RouteType).filter((d) => routes.value!.find((r) => (r.meta as IMetaOption).type === d));
         });
-        console.log(routes.value, types.value);
+
         return {
             routes,
             types,
