@@ -40,6 +40,18 @@ const mixin: IMetaOption[] = [
                 title: '基本用法'
             }
         ]
+    },
+    {
+        title: 'DragResize 拖拽+调整大小',
+        type: RouteType.Mixin,
+        doc: '',
+        name: 'drag-resize',
+        section: [
+            {
+                name: 'basic',
+                title: '基本用法'
+            }
+        ]
     }
 ];
 

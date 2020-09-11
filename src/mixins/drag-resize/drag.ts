@@ -1,8 +1,7 @@
-import { getBaseProps } from './prop';
+import { getBaseProps, DragEmits, IDragProps, IDragResizeOptions } from './prop';
 import { reactive, computed, onMounted, onBeforeUnmount, SetupContext } from 'vue';
 import { useElement } from './element';
 import { PropsType } from '../../utils/type';
-import { DragEmits, IDragProps, IDragResizeOptions } from './type';
 
 export const getDragProps = (): IDragProps => ({
     ...getBaseProps(),

@@ -1,13 +1,7 @@
-import { getRectProps, IRectProps } from './prop';
+import { getRectProps, IDragResizeOptions, IResizeProps, ResizeEmits } from './prop';
 import { useElement } from './element';
 import { reactive, computed, toRefs, onMounted, onBeforeUnmount, SetupContext } from 'vue';
-import { Prop, PropsType } from '../../utils/type';
-import { IDragResizeOptions, ResizeEmits } from './type';
-
-export interface IResizeProps extends IRectProps {
-    mode: Prop<string>;
-    border: Prop<number>;
-}
+import { PropsType } from '../../utils/type';
 
 export const getResizeProps = (): IResizeProps => ({
     ...getRectProps(),
