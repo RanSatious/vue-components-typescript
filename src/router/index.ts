@@ -5,6 +5,7 @@ import { camelCase } from 'lodash';
 import component from './component';
 import mixin from './mixin';
 import service from './service';
+import directive from './directive';
 
 const toRoute = (meta: IMetaOption): RouteRecordRaw => ({
     path: meta.type === RouteType.Default ? `/${meta.name}` : `/${meta.type}/${meta.name}`,
@@ -31,7 +32,8 @@ const routes: RouteRecordRaw[] = [
             },
             ...component.map(toRoute),
             ...mixin.map(toRoute),
-            ...service.map(toRoute)
+            ...service.map(toRoute),
+            ...directive.map(toRoute)
         ]
     }
 ];
