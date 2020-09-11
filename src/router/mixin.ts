@@ -16,6 +16,18 @@ const mixin: IMetaOption[] = [
                 title: '带表单的对话框'
             }
         ]
+    },
+    {
+        title: 'Drag 拖拽移动',
+        type: RouteType.Mixin,
+        doc: '',
+        name: 'drag',
+        section: [
+            {
+                name: 'basic',
+                title: '基本用法'
+            }
+        ]
     }
 ];
 
