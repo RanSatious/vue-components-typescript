@@ -4,6 +4,7 @@ import DefaultLayout from '../layouts/Default.vue';
 import { camelCase } from 'lodash';
 import component from './component';
 import mixin from './mixin';
+import service from './service';
 
 const toRoute = (meta: IMetaOption): RouteRecordRaw => ({
     path: meta.type === RouteType.Default ? `/${meta.name}` : `/${meta.type}/${meta.name}`,
@@ -29,7 +30,8 @@ const routes: RouteRecordRaw[] = [
                 }
             },
             ...component.map(toRoute),
-            ...mixin.map(toRoute)
+            ...mixin.map(toRoute),
+            ...service.map(toRoute)
         ]
     }
 ];

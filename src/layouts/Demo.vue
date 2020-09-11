@@ -89,9 +89,12 @@ export default defineComponent({
 }
 
 .page {
-    h2:not(:first-child) {
-        margin: 40px 0 20px 0;
+    h2 {
         font-size: 18px;
+
+        &:not(:first-child) {
+            margin: 40px 0 20px 0;
+        }
     }
 }
 </style>
