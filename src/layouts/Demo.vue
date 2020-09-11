@@ -42,7 +42,7 @@ export default defineComponent({
                 return {
                     name,
                     title,
-                    component: defineAsyncComponent(() => import(`../views/${category}/${data.name}/Demo${startCase(name)}.vue`)),
+                    component: defineAsyncComponent(() => import(/* webpackChunkName: "demo" */ `../views/${category}/${data.name}/Demo${startCase(name)}.vue`)),
                 };
             });
         });
