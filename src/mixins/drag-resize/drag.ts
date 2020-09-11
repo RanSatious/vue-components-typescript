@@ -1,38 +1,8 @@
-import { getBaseProps, IBaseProps } from './prop';
-import { reactive, computed, onMounted, onBeforeUnmount, SetupContext, ref, Ref } from 'vue';
-import { IElementData, useElement } from './element';
-import { Prop, PropsType } from '../../utils/type';
-
-export interface IDragProps extends IBaseProps {
-    step: Prop<number>;
-    gap: Prop<number>;
-    overflow: Prop<boolean>;
-    group: Prop<string>;
-}
-
-type DragPosition = {
-    x: number;
-    y: number;
-};
-
-export interface IDragData {
-    dragging: boolean;
-    start: DragPosition;
-    offset: DragPosition;
-    cancel: boolean;
-}
-
-export interface DragEmits {
-    'update:top': (value: number) => void;
-    'update:left': (value: number) => void;
-}
-
-ref;
-
-export interface IDragOptions {
-    self: Ref<HTMLElement | null>;
-    element?: IElementData;
-}
+import { getBaseProps } from './prop';
+import { reactive, computed, onMounted, onBeforeUnmount, SetupContext } from 'vue';
+import { useElement } from './element';
+import { PropsType } from '../../utils/type';
+import { DragEmits, IDragProps, IDragResizeOptions } from './type';
 
 export const getDragProps = (): IDragProps => ({
     ...getBaseProps(),
@@ -58,10 +28,10 @@ export const getDragProps = (): IDragProps => ({
     }
 });
 
-export const useDrag = (props: PropsType<IDragProps>, context: unknown, { self, element = useElement() }: IDragOptions) => {
+export const useDrag = (props: PropsType<IDragProps>, context: unknown, { self, element = useElement() }: IDragResizeOptions) => {
     const ctx = context as SetupContext<DragEmits>;
 
-    const data = reactive<IDragData>({
+    const data = reactive({
         dragging: false,
         start: {
             x: 0,

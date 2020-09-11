@@ -28,6 +28,18 @@ const mixin: IMetaOption[] = [
                 title: '基本用法'
             }
         ]
+    },
+    {
+        title: 'Resize 调整大小',
+        type: RouteType.Mixin,
+        doc: '',
+        name: 'resize',
+        section: [
+            {
+                name: 'basic',
+                title: '基本用法'
+            }
+        ]
     }
 ];
 

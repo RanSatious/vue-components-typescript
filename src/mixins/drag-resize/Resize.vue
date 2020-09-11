@@ -1,34 +1,33 @@
-<!-- 可拖拽移动的元素 -->
+<!-- 可调整尺寸的元素 -->
 <template>
     <div ref="self"
-         class="element-drag"
-         :style="dragStyle">
+         class="element-resize"
+         :style="resizeStyle">
         <slot></slot>
     </div>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { getDragProps, useDrag } from './drag';
-
+import { getResizeProps, useResize } from './resize';
 export default defineComponent({
-    name: 'ElementDrag',
+    name: 'ElementResize',
     props: {
-        ...getDragProps(),
+        ...getResizeProps(),
     },
     setup(props, context) {
         const self = ref(null);
-        const { dragStyle } = useDrag(props, context, {
+        let { resizeStyle } = useResize(props, context, {
             self,
         });
         return {
+            resizeStyle,
             self,
-            dragStyle,
         };
     },
 });
 </script>
 <style lang="less" scoped>
-.element-drag {
+.element-resize {
     position: absolute;
     user-select: none;
 }
