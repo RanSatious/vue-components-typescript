@@ -92,7 +92,7 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
-::v-deep .ant-modal-body {
+::v-deep(.ant-modal-body) {
     padding: 20px;
     padding-bottom: 8px;
     text-align: center;
