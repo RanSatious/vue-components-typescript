@@ -9,11 +9,10 @@
                 </component>
             </section>
         </template>
-
     </div>
 </template>
 <script lang="ts">
-import { IMetaOption, RouteType } from '@/router/type';
+import { IMetaOption, RouteType } from '../router/type';
 import { computed, defineAsyncComponent, defineComponent, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { IDemoSection, RoutePathMap } from '../utils/type';

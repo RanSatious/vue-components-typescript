@@ -1,8 +1,9 @@
 import { App } from 'vue';
 import loading from './loading';
+import title from './title';
 
 export default <T>(app: App<T>) => {
-    [loading].forEach(directive => {
+    [loading, title].forEach(directive => {
         app.use(directive);
     });
 };
