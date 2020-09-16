@@ -43,12 +43,13 @@ export default defineComponent({
 
             setTimeout(() => {
                 if (data.show) {
-                    let rect = container.getBoundingClientRect();
-
                     if (props.position === 'mouse') {
-                        top.value = data.mouse.y + props.gap;
-                        left.value = data.mouse.x + props.gap;
+                        nextTick(() => {
+                            top.value = data.mouse.y + props.gap;
+                            left.value = data.mouse.x + props.gap;
+                        });
                     } else {
+                        let rect = container.getBoundingClientRect();
                         let pos = placer[props.position](rect, host);
                         top.value = pos.top;
                         left.value = pos.left;
