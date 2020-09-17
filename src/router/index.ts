@@ -30,6 +30,15 @@ const routes: RouteRecordRaw[] = [
                     type: RouteType.Default
                 }
             },
+            {
+                path: '/color',
+                name: 'color',
+                component: () => import('../views/Color.vue'),
+                meta: {
+                    title: '颜色',
+                    type: RouteType.Default
+                }
+            },
             ...component.map(toRoute),
             ...mixin.map(toRoute),
             ...service.map(toRoute),
