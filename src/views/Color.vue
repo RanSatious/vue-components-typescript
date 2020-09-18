@@ -51,7 +51,6 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
-@import url('/src/assets/css/default.less');
 .primary-color {
     display: flex;
 
@@ -64,7 +63,6 @@ export default defineComponent({
         transition: all 0.2s;
 
         &:hover {
-            box-shadow: @shadow-2;
             margin-top: -8px;
         }
     }
