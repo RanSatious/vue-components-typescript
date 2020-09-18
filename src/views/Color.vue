@@ -23,23 +23,24 @@
                 </div>
             </div>
         </div>
-        <h2>Dark Mode</h2>
     </div>
 </template>
 <script lang="ts">
 import { message } from 'ant-design-vue';
+import { useClipboard } from '../common';
 import { defineComponent } from 'vue';
 import { presetPrimaryColors, presetPalettes } from '../style/color';
 
 export default defineComponent({
     name: 'ColorPage',
     setup() {
+        const { copy } = useClipboard();
         return {
             colors: Object.entries(presetPalettes),
             presets: Object.entries(presetPrimaryColors),
             async onCopy(color: string) {
                 try {
-                    await window.navigator.clipboard.writeText(color);
+                    await copy(color);
                     message.success(`${color} copied!`);
                 } catch (error) {
                     message.error(error);
