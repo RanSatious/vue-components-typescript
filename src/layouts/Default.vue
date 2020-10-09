@@ -47,6 +47,8 @@ export default defineComponent({
 }
 
 .ant-layout-sider {
+    .scroll-bar();
+
     background-color: #fff;
     padding: 10px;
 }
