@@ -3,6 +3,7 @@ import typescript from 'rollup-plugin-typescript2';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import dts from 'rollup-plugin-dts';
+import postCSS from 'rollup-plugin-postcss';
 import path from 'path';
 import fs from 'fs-extra';
 
@@ -30,14 +31,7 @@ const getCategory = category => {
 
 const base = {
     external: ['vue'],
-    plugins: [
-        typescript(),
-        resolve(),
-        commonjs(),
-        vue({
-            preprocessStyles: true
-        })
-    ]
+    plugins: [typescript(), resolve(), vue(), postCSS(), commonjs()]
 };
 
 let config = [

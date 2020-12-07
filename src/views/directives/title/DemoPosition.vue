@@ -47,7 +47,7 @@
     width: 400px;
     margin-bottom: 20px;
 
-    /deep/.ant-btn {
+    ::v-deep.ant-btn {
         height: 60px;
         width: 60px;
         margin: 0;
@@ -56,7 +56,7 @@
     &.top,
     &.bottom {
         text-align: center;
-        /deep/.ant-btn:not(:last-child) {
+        ::v-deep.ant-btn:not(:last-child) {
             margin-right: 20px;
         }
     }
@@ -69,7 +69,7 @@
             flex-grow: 1;
             padding: 20px;
 
-            /deep/.ant-btn {
+            ::v-deep.ant-btn {
                 width: 100%;
                 height: 100%;
             }

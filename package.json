@@ -14,7 +14,7 @@
         "build": "vue-cli-service build",
         "report": "vue-cli-service build --report",
         "lint": "vue-cli-service lint",
-        "pack": "rollup --config"
+        "pack": "rollup --config && rollup --config --environment PACK:type"
     },
     "dependencies": {
         "ant-design-vue": "^2.0.0-beta.9",

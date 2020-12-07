@@ -1,30 +1,13 @@
 <template>
-    <a-layout>
-        <a-layout-header>
-            <router-link :to="{name: 'home'}"
-                         class="title">Segma Vue Components typescript</router-link>
-        </a-layout-header>
-        <a-layout>
-            <a-layout-sider>
-                <nav-menu></nav-menu>
-            </a-layout-sider>
-            <a-layout-content>
-                <div class="content">
-                    <router-view></router-view>
-                </div>
-            </a-layout-content>
-        </a-layout>
-    </a-layout>
+    <div class="content">
+        <router-view></router-view>
+    </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
-import NavMenu from './Menu.vue';
 
 export default defineComponent({
-    name: 'DefaultLayout',
-    components: {
-        NavMenu,
-    },
+    name: 'DefaultLayout'
 });
 </script>
 <style lang="less" scoped>
