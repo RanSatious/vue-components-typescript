@@ -1,55 +1,51 @@
 <!-- 禁用状态 -->
 <template>
-    <a-table :pagination="false"
-             :data-source="data"
-             rowKey="id">
-        <a-table-column data-index="name"
-                        title="name"></a-table-column>
-        <a-table-column title="action">
+    <el-table :data="tableData">
+        <el-table-column prop="name"
+                         label="name">
+        </el-table-column>
+        <el-table-column label="action">
             <template v-slot="scope">
-                <table-action :scope="scope"
-                              :actions="actions"></table-action>
+                <table-action :actions="actions"
+                              :scope="scope"></table-action>
             </template>
-        </a-table-column>
-    </a-table>
+        </el-table-column>
+    </el-table>
 </template>
 <script>
-import { computed, ref } from 'vue';
 export default {
-    setup() {
-        const data = computed(() => {
-            return [{ id: 1, name: 'tom' }];
-        });
-        const disabled = ref(false);
-
-        const actions = computed(() => {
-            return [
-                {
-                    title: disabled.value ? '恢复' : '禁用',
-                    type: 'primary',
-                    handler: ({ record, index }) => {
-                        disabled.value = !disabled.value;
-                    },
-                },
-                {
-                    title: '删除',
-                    type: 'danger',
-                    disabled: disabled.value,
-                },
-                {
-                    title: '删除',
-                    type: 'danger',
-                    disabled: ({ record, index }) => {
-                        return disabled.value;
-                    },
-                },
-            ];
-        });
-
+    data() {
         return {
-            data,
-            actions,
+            disabled: false
         };
     },
+    computed: {
+        tableData() {
+            return [{ name: 'tom' }];
+        },
+        actions() {
+            return [
+                {
+                    title: this.disabled ? '恢复' : '禁用',
+                    type: 'primary',
+                    handler: ({ row, $index }) => {
+                        this.disabled = !this.disabled;
+                    }
+                },
+                {
+                    title: '删除',
+                    type: 'danger',
+                    disabled: this.disabled
+                },
+                {
+                    title: '删除',
+                    type: 'danger',
+                    disabled: ({ row, $index }) => {
+                        return this.disabled;
+                    }
+                }
+            ];
+        }
+    }
 };
 </script>

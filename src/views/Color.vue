@@ -26,7 +26,6 @@
     </div>
 </template>
 <script lang="ts">
-import { message } from 'ant-design-vue';
 import { useClipboard } from '../common';
 import { defineComponent } from 'vue';
 import { presetPrimaryColors, presetPalettes } from '../style/color';
@@ -41,13 +40,13 @@ export default defineComponent({
             async onCopy(color: string) {
                 try {
                     await copy(color);
-                    message.success(`${color} copied!`);
+                    alert(`${color} copied!`);
                 } catch (error) {
-                    message.error(error);
+                    alert(error);
                 }
-            },
+            }
         };
-    },
+    }
 });
 </script>
 <style lang="less" scoped>

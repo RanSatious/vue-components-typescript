@@ -1,9 +1,9 @@
 <template>
     <div>
-        <a-button type="primary"
-                  @click="visible = !visible">
+        <el-button type="primary"
+                   @click="visible = !visible">
             Open Modal
-        </a-button>
+        </el-button>
         visible: {{visible}}
         <dialog-custom v-model:visible="visible"
                        title="title"></dialog-custom>
@@ -15,15 +15,15 @@ import DialogCustom from './Custom.vue';
 
 export default defineComponent({
     components: {
-        DialogCustom,
+        DialogCustom
     },
     setup() {
         const visible = ref(false);
 
         return {
-            visible,
+            visible
         };
-    },
+    }
 });
 </script>
 <style lang="less" scoped>

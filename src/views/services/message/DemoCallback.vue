@@ -2,8 +2,8 @@
 <!-- 可在点击按钮时插入自定义的异步操作，如在点击确定时执行网络请求 -->
 <template>
     <div>
-        <a-button @click="alert">alert</a-button>
-        <a-button @click="confirm">confirm</a-button>
+        <el-button @click="alert">alert</el-button>
+        <el-button @click="confirm">confirm</el-button>
     </div>
 </template>
 <script>
@@ -21,8 +21,8 @@ export default {
                     confirm: async () => {
                         await this.sleep();
                         console.log('custom confirm');
-                    },
-                },
+                    }
+                }
             });
         },
         confirm() {
@@ -31,15 +31,15 @@ export default {
                     confirm: async () => {
                         await this.sleep();
                         throw new Error('something wrong');
-                    },
-                },
+                    }
+                }
             });
-        },
-    },
+        }
+    }
 };
 </script>
 <style lang="less" scoped>
-.ant-btn {
+.el-button {
     margin-right: 10px;
 }
 </style>

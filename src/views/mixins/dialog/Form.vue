@@ -1,21 +1,24 @@
 <template>
-    <a-modal v-model:visible="localVisible"
-             :title="title"
-             :ok-button-props="{loading}"
-             :cancel-button-props="{loading}"
-             :closable="!loading"
-             :mask-closable="!loading"
-             :keyboard="!loading"
-             @ok="submit">
-        <a-form ref="formRef"
-                :model="form"
-                :rules="rules">
-            <a-form-item name="name"
-                         label="name">
-                <a-input v-model:value="form.name"></a-input>
-            </a-form-item>
-        </a-form>
-    </a-modal>
+    <el-dialog v-model="localVisible"
+               :title="title">
+        <el-form ref="formRef"
+                 :model="form"
+                 :rules="rules">
+            <el-form-item prop="name"
+                          label="name">
+                <el-input v-model="form.name"></el-input>
+            </el-form-item>
+        </el-form>
+        <template #footer>
+            <span class="dialog-footer">
+                <el-button :loading="loading"
+                           @click="localVisible = false">取 消</el-button>
+                <el-button type="primary"
+                           :loading="loading"
+                           @click="submit">确 定</el-button>
+            </span>
+        </template>
+    </el-dialog>
 </template>
 <script lang="ts">
 import { reactive, SetupContext } from 'vue';
@@ -24,20 +27,21 @@ import { getDialogFormProps, IDialogFormProps, useDialogForm } from '../../../mi
 export default {
     name: 'DialogForm',
     props: {
-        ...getDialogFormProps(),
+        ...getDialogFormProps()
     },
+    emits: ['save', 'update:visible'],
     setup(props, context) {
         return {
             rules: {
-                name: [{ required: true, message: '请输入name' }],
+                name: [{ required: true, message: '请输入name' }]
             },
             ...useDialogForm(props, context, {
                 form: reactive({
-                    name: 'name',
-                }),
-            }),
+                    name: 'name'
+                })
+            })
         };
-    },
+    }
 };
 </script>
 <style lang="less" scoped>

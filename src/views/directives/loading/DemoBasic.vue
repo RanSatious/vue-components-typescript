@@ -1,46 +1,45 @@
 <template>
-    <a-button @click="enable = !enable">toggle enable</a-button>{{enable}}
+    <el-button @click="enable = !enable">toggle enable</el-button>{{enable}}
     <p>
         size:
-        <a-radio-group v-model:value="size"
-                       name="size">
-            <a-radio value="small">
+        <el-radio-group v-model="size">
+            <el-radio-button label="small">
                 small
-            </a-radio>
-            <a-radio value="default">
+            </el-radio-button>
+            <el-radio-button label="default">
                 default
-            </a-radio>
-            <a-radio value="large">
+            </el-radio-button>
+            <el-radio-button label="large">
                 large
-            </a-radio>
-        </a-radio-group>
+            </el-radio-button>
+        </el-radio-group>
     </p>
     <p>
         delay:
-        <a-radio-group v-model:value="delay"
-                       name="delay">
-            <a-radio :value="0">
+        <el-radio-group v-model="delay"
+                        name="delay">
+            <el-radio-button :label="0">
                 0
-            </a-radio>
-            <a-radio :value="1000">
+            </el-radio-button>
+            <el-radio-button :label="1000">
                 1000
-            </a-radio>
-        </a-radio-group>
+            </el-radio-button>
+        </el-radio-group>
     </p>
     <p>
         tip:
-        <a-radio-group v-model:value="tip"
-                       name="tip">
-            <a-radio value="">
+        <el-radio-group v-model="tip"
+                        name="tip">
+            <el-radio-button label="">
                 none
-            </a-radio>
-            <a-radio value="tip text">
+            </el-radio-button>
+            <el-radio-button label="tip text">
                 tip text
-            </a-radio>
-        </a-radio-group>
+            </el-radio-button>
+        </el-radio-group>
     </p>
     <div v-if="enable">
-        <a-button @click="loading = !loading">toggle loading</a-button>{{loading}}
+        <el-button @click="loading = !loading">toggle loading</el-button>{{loading}}
         <div v-segma-loading="{loading, size, delay, tip}"
              class="basic">
             content
@@ -62,9 +61,9 @@ export default {
             enable,
             size,
             delay,
-            tip,
+            tip
         };
-    },
+    }
 };
 </script>
 <style lang="less" scoped>

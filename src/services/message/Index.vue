@@ -9,13 +9,13 @@
         {{data.message}}
         <template v-slot:footer>
             <div :style="footerStyle">
-                <a-button v-for="(item, index) in data.buttons"
-                          :key="index"
-                          :type="item.type"
-                          :loading="data.loading"
-                          @click="onClick(item)">
+                <el-button v-for="(item, index) in data.buttons"
+                           :key="index"
+                           :type="item.type"
+                           :loading="data.loading"
+                           @click="onClick(item)">
                     {{item.text}}
-                </a-button>
+                </el-button>
             </div>
         </template>
     </a-modal>
@@ -30,13 +30,13 @@ export default defineComponent({
         const data = inject<IMessageOption>('data');
         const footerStyle = computed(() => {
             return {
-                'text-align': data.align,
+                'text-align': data.align
             };
         });
 
         watch(
             () => data.visible,
-            (val) => {
+            val => {
                 if (val) {
                     context.emit('open');
                     data.confirm = false;
@@ -71,10 +71,10 @@ export default defineComponent({
 
         const actions = {
             cancel: onCancel,
-            confirm: onConfirm,
+            confirm: onConfirm
         };
 
-        const onClick = async (item) => {
+        const onClick = async item => {
             let action = item.handler || actions[item.action];
             if (action) {
                 await action(onConfirm, onCancel);
@@ -86,16 +86,11 @@ export default defineComponent({
             footerStyle,
             onCancel,
             onConfirm,
-            onClick,
+            onClick
         };
-    },
+    }
 });
 </script>
 <style lang="less" scoped>
-::v-deep(.ant-modal-body) {
-    padding: 20px;
-    padding-bottom: 8px;
-    text-align: center;
-    word-break: break-word;
-}
+// todo
 </style>

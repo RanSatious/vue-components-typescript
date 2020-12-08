@@ -130,7 +130,7 @@ function Title(container: HTMLElement, options: ITitleOption) {
     function onLeave() {
         clearTimeout(data.timer.show);
         data.timer.show = null;
-        data.timer.hide = setTimeout(() => {
+        data.timer.hide = window.setTimeout(() => {
             data.show = false;
         }, 100);
     }
@@ -143,7 +143,7 @@ function Title(container: HTMLElement, options: ITitleOption) {
         if (instance || data.timer.show) {
             return;
         }
-        data.timer.show = setTimeout(() => {
+        data.timer.show = window.setTimeout(() => {
             instance = createApp({
                 setup() {
                     return () => h(Component, props);

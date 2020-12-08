@@ -21,47 +21,47 @@ import { computed, defineComponent } from 'vue';
 
 export default defineComponent({
     // 进度条组件
-    // 基于el-progress-bar
-    name: 'SeProgressBar',
+    // 基于el-progress
+    name: 'SeProgress',
     props: {
         // 百分比
         percent: {
             type: Number,
-            default: 0,
+            default: 0
         },
         // 起始位置偏移
         offset: {
             type: Number,
-            default: 0,
+            default: 0
         },
         // 进度条状态
         // normal/success/error/running
         status: {
             type: String,
-            default: 'normal',
+            default: 'normal'
         },
         // 进度条宽度
         strokeHeight: {
             type: Number,
-            default: 6,
+            default: 6
         },
         // 是否开启动画
         // 开启动画时，status固定为running
         animation: {
             type: Boolean,
-            default: false,
+            default: false
         },
         // 是否显示文本
         showText: {
             type: Boolean,
-            default: true,
-        },
+            default: true
+        }
     },
     setup(props, context) {
         const style = computed(() => {
             return {
                 width: props.showText ? 'calc(100% - 40px)' : '100%',
-                height: `${props.strokeHeight}px`,
+                height: `${props.strokeHeight}px`
             };
         });
         const percentText = computed(() => {
@@ -71,16 +71,16 @@ export default defineComponent({
             if (props.animation) return {};
             return {
                 left: `${props.offset}%`,
-                width: `${props.percent}%`,
+                width: `${props.percent}%`
             };
         });
 
         return {
             style,
             percentText,
-            progressStyle,
+            progressStyle
         };
-    },
+    }
 });
 </script>
 <style lang="less" scoped>

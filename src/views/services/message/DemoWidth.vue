@@ -2,8 +2,8 @@
 <!-- 默认值：300 -->
 <template>
     <div>
-        <a-button @click="alert">alert</a-button>
-        <a-button @click="confirm">confirm</a-button>
+        <el-button @click="alert">alert</el-button>
+        <el-button @click="confirm">confirm</el-button>
     </div>
 </template>
 <script>
@@ -12,19 +12,19 @@ export default {
     methods: {
         alert() {
             Message.alert('width = 400', {
-                width: 400,
+                width: 400
             });
         },
         confirm() {
             Message.confirm('width = 400', {
-                width: 400,
+                width: 400
             });
-        },
-    },
+        }
+    }
 };
 </script>
 <style lang="less" scoped>
-.ant-btn {
+.el-button {
     margin-right: 10px;
 }
 </style>

@@ -1,5 +1,4 @@
 import { createApp, h, reactive, watch, nextTick, App } from 'vue';
-import { Spin } from 'ant-design-vue';
 import isNil from 'lodash/isNil';
 import './index.less';
 
@@ -102,7 +101,7 @@ export default <T>(app: App<T>) => {
             createApp({
                 setup() {
                     return () =>
-                        h(Spin, {
+                        h('div', {
                             spinning: data.loading,
                             tip: data.tip,
                             size: data.size,

@@ -1,6 +1,5 @@
 import { RouteType, ISection } from '../router/type';
-import { PropType } from 'vue';
-import { ValidateFields } from 'ant-design-vue/types/form/form';
+import { PropType, Ref } from 'vue';
 
 // from vue type declaration
 declare type DefaultFactory<T> = (props: Record<string, unknown>) => T | null | undefined;
@@ -55,8 +54,8 @@ export interface IDemoSection extends ISection {
 }
 
 export type RefForm<T> = {
-    validate: ValidateFields;
-    getFieldsValue: () => T;
+    validate: any;
+    model: T;
 } | null;
 
 export const RoutePathMap = {

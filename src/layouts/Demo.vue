@@ -29,7 +29,7 @@ export default defineComponent({
         const data = reactive<IDemoData>({
             section: [],
             doc: '',
-            name: '',
+            name: ''
         });
         const demos = computed(() => {
             if (!data.name) {
@@ -41,7 +41,7 @@ export default defineComponent({
                 return {
                     name,
                     title,
-                    component: defineAsyncComponent(() => import(/* webpackChunkName: "demo" */ `../views/${category}/${data.name}/Demo${startCase(name)}.vue`)),
+                    component: defineAsyncComponent(() => import(/* webpackChunkName: "demo" */ `../views/${category}/${data.name}/Demo${startCase(name)}.vue`))
                 };
             });
         });
@@ -50,25 +50,25 @@ export default defineComponent({
 
         watch(
             () => route.meta as IMetaOption,
-            (val) => {
+            val => {
                 const { doc = '', section = [], name = '', type } = val;
                 data.doc = doc;
                 data.section = section.map(({ name, title }) => ({
                     name,
                     title,
-                    category: RoutePathMap[type],
+                    category: RoutePathMap[type]
                 }));
                 data.name = name;
             },
             {
-                immediate: true,
+                immediate: true
             }
         );
 
         return {
-            demos,
+            demos
         };
-    },
+    }
 });
 </script>
 <style lang="less" scoped>

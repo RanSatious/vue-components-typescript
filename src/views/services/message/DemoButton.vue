@@ -1,9 +1,9 @@
 <!-- 自定义按钮 -->
 <template>
     <div>
-        <a-button @click="alert">alert</a-button>
-        <a-button @click="confirm">confirm</a-button>
-        <a-button @click="custom">custom</a-button>
+        <el-button @click="alert">alert</el-button>
+        <el-button @click="confirm">confirm</el-button>
+        <el-button @click="custom">custom</el-button>
     </div>
 </template>
 <script>
@@ -16,9 +16,9 @@ export default {
                     {
                         type: 'primary',
                         text: 'OK',
-                        action: 'confirm',
-                    },
-                ],
+                        action: 'confirm'
+                    }
+                ]
             });
         },
         confirm() {
@@ -27,14 +27,14 @@ export default {
                     {
                         type: 'info',
                         text: '取消',
-                        action: 'cancel',
+                        action: 'cancel'
                     },
                     {
                         type: 'primary',
                         text: '确定',
-                        action: 'confirm',
-                    },
-                ],
+                        action: 'confirm'
+                    }
+                ]
             });
         },
         custom() {
@@ -46,26 +46,26 @@ export default {
                         handler(confirm, cancel) {
                             console.log('custom');
                             confirm();
-                        },
+                        }
                     },
                     {
                         type: 'danger',
                         text: '自定义2',
-                        action: 'cancel',
-                    },
+                        action: 'cancel'
+                    }
                 ],
                 callback: {
                     confirm() {
                         console.log('custom confirm');
-                    },
-                },
+                    }
+                }
             });
-        },
-    },
+        }
+    }
 };
 </script>
 <style lang="less" scoped>
-.ant-btn {
+.el-button {
     margin-right: 10px;
 }
 </style>

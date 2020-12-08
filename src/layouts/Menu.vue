@@ -29,14 +29,14 @@ export default defineComponent({
             return router.options.routes[0].children;
         });
         const types = computed(() => {
-            return Object.values(RouteType).filter((d) => routes.value!.find((r) => (r.meta as IMetaOption).type === d));
+            return Object.values(RouteType).filter(d => routes.value!.find(r => (r.meta as IMetaOption).type === d));
         });
 
         return {
             routes,
-            types,
+            types
         };
-    },
+    }
 });
 </script>
 <style lang="less" scoped>

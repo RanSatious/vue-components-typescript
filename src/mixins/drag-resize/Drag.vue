@@ -13,18 +13,18 @@ import { getDragProps, useDrag } from './drag';
 export default defineComponent({
     name: 'ElementDrag',
     props: {
-        ...getDragProps(),
+        ...getDragProps()
     },
     setup(props, context) {
         const self = ref(null);
         const { dragStyle } = useDrag(props, context, {
-            self,
+            self
         });
         return {
             self,
-            dragStyle,
+            dragStyle
         };
-    },
+    }
 });
 </script>
 <style lang="less" scoped>

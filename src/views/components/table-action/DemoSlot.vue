@@ -1,41 +1,34 @@
 <!-- 使用插槽 -->
 <template>
-    <a-table :pagination="false"
-             :data-source="data"
-             rowKey="id">
-        <a-table-column data-index="name"
-                        title="name"></a-table-column>
-        <a-table-column title="action">
+    <el-table :data="tableData">
+        <el-table-column prop="name"
+                         label="name">
+        </el-table-column>
+        <el-table-column label="action">
             <template v-slot="scope">
-                <table-action :scope="scope"
-                              :actions="actions">
+                <table-action :actions="actions"
+                              :scope="scope">
                     <template v-slot:detail>
-                        {{scope.record}}
+                        {{scope.row.name}}
                     </template>
                 </table-action>
             </template>
-        </a-table-column>
-    </a-table>
+        </el-table-column>
+    </el-table>
 </template>
 <script>
-import { computed } from 'vue';
 export default {
-    setup() {
-        const data = computed(() => {
-            return [{ id: 1, name: 'tom' }];
-        });
-        const actions = computed(() => {
+    computed: {
+        tableData() {
+            return [{ name: 'tom' }];
+        },
+        actions() {
             return [
                 {
-                    slot: 'detail',
-                },
+                    slot: 'detail'
+                }
             ];
-        });
-
-        return {
-            data,
-            actions,
-        };
-    },
+        }
+    }
 };
 </script>

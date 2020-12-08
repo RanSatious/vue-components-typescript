@@ -1,52 +1,79 @@
 <template>
-    <div class="content">
-        <router-view></router-view>
+    <div class="header">
+        <router-link :to="{name: 'home'}"
+                     class="title">Segma Vue Components typescript</router-link>
+    </div>
+    <div class="main">
+        <div class="slider">
+            <nav-menu></nav-menu>
+        </div>
+        <div class="content-wrapper">
+            <div class="content">
+                <router-view></router-view>
+            </div>
+        </div>
     </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
+import NavMenu from './Menu.vue';
 
 export default defineComponent({
-    name: 'DefaultLayout'
+    name: 'DefaultLayout',
+    components: {
+        NavMenu
+    },
+    setup() {
+        onMounted(() => {
+            document.title = 'Segma 组件库';
+        });
+    }
 });
 </script>
 <style lang="less" scoped>
 @import '../assets/css/scroll.less';
-
-.ant-layout {
-    height: 100%;
-}
-.ant-layout-header {
-    background-color: #fff;
-    border-bottom: 1px solid #f7f7f7;
+.header {
     height: 40px;
+    border-bottom: 1px solid #ccc;
     line-height: 40px;
+    box-sizing: border-box;
     padding: 0 10px;
 
     .title {
         font-size: 18px;
         font-weight: bold;
+        color: rgba(0, 0, 0, 0.85);
+        text-decoration: none;
     }
 }
 
-.ant-layout-sider {
-    .scroll-bar();
+.main {
+    box-sizing: border-box;
+    height: calc(100% - 40px);
+    display: flex;
 
-    background-color: #fff;
-    padding: 10px;
-}
-
-.ant-layout-content {
-    padding: 10px;
-
-    > .content {
+    .slider {
         .scroll-bar();
-
-        box-sizing: border-box;
+        overflow: auto;
+        width: 240px;
         background-color: #fff;
         padding: 10px;
-        height: 100%;
-        overflow: auto;
+    }
+
+    .content-wrapper {
+        padding: 10px;
+        flex: 1;
+        background-color: #f7f7f7;
+
+        > .content {
+            .scroll-bar();
+
+            box-sizing: border-box;
+            background-color: #fff;
+            padding: 10px;
+            height: 100%;
+            overflow: auto;
+        }
     }
 }
 </style>

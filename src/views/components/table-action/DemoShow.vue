@@ -1,55 +1,51 @@
 <!-- 显示/隐藏 -->
 <template>
-    <a-table :pagination="false"
-             :data-source="data"
-             rowKey="id">
-        <a-table-column data-index="name"
-                        title="name"></a-table-column>
-        <a-table-column title="action">
+    <el-table :data="tableData">
+        <el-table-column prop="name"
+                         label="name">
+        </el-table-column>
+        <el-table-column label="action">
             <template v-slot="scope">
-                <table-action :scope="scope"
-                              :actions="actions"></table-action>
+                <table-action :actions="actions"
+                              :scope="scope"></table-action>
             </template>
-        </a-table-column>
-    </a-table>
+        </el-table-column>
+    </el-table>
 </template>
 <script>
-import { computed, ref } from 'vue';
 export default {
-    setup() {
-        const data = computed(() => {
-            return [{ id: 1, name: 'tom' }];
-        });
-        const show = ref(false);
-
-        const actions = computed(() => {
-            return [
-                {
-                    title: show.value ? '隐藏' : '显示',
-                    type: 'primary',
-                    handler: ({ record, index }) => {
-                        show.value = !show.value;
-                    },
-                },
-                {
-                    title: '删除',
-                    type: 'danger',
-                    show: show.value,
-                },
-                {
-                    title: '删除',
-                    type: 'danger',
-                    show: ({ record, index }) => {
-                        return show.value;
-                    },
-                },
-            ];
-        });
-
+    data() {
         return {
-            data,
-            actions,
+            show: false
         };
     },
+    computed: {
+        tableData() {
+            return [{ name: 'tom' }];
+        },
+        actions() {
+            return [
+                {
+                    title: this.show ? '隐藏' : '显示',
+                    type: 'primary',
+                    handler: ({ row, $index }) => {
+                        this.show = !this.show;
+                    }
+                },
+                {
+                    title: '删除',
+                    type: 'danger',
+                    show: this.show
+                },
+                {
+                    title: '删除',
+                    type: 'danger',
+                    show: ({ row, $index }) => {
+                        return this.show;
+                    }
+                }
+            ];
+        }
+    }
 };
 </script>

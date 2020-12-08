@@ -1,7 +1,7 @@
 <!-- 基本用法 -->
 <template>
     <div class="row">
-        <a-button v-title="'文字提示'">文字提示</a-button>
+        <el-button v-title="'文字提示'">文字提示</el-button>
         <icon-font v-title="'图标提示'"
                    name="se-icon-file"></icon-font>
     </div>
@@ -10,9 +10,6 @@
 .row {
     display: flex;
     align-items: center;
-}
-.ant-btn {
-    margin-right: 20px;
 }
 
 .icon {

@@ -1,5 +1,5 @@
 import { getDialogProps, useDialog, IDialogProps, DialogEmits } from '../dialog';
-import { ref, SetupContext, UnwrapRef } from 'vue';
+import { ref, SetupContext, toRaw, UnwrapRef } from 'vue';
 import { Prop, PropsType, RefForm } from '../../utils/type';
 
 export interface IDialogFormProps extends IDialogProps {
@@ -22,7 +22,7 @@ export const getDialogFormProps = (): IDialogFormProps => {
 };
 
 interface IDialogFormOptions<T> {
-    save?: (data: T) => Promise<void>;
+    save?: (data: UnwrapRef<T>) => Promise<void>;
     form?: UnwrapRef<T>;
 }
 
@@ -46,10 +46,10 @@ export const useDialogForm = <T extends object>(props: PropsType<IDialogFormProp
         try {
             loading.value = true;
 
-            let result = {} as T;
+            let result: UnwrapRef<T>;
             if (formRef.value) {
                 await formRef.value!.validate();
-                result = formRef.value!.getFieldsValue();
+                result = formRef.value.model;
             }
 
             if (typeof options.save === 'function') {

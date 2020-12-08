@@ -1,7 +1,7 @@
 <template>
     <div>
-        <a-button @click="alert">alert</a-button>
-        <a-button @click="confirm">confirm</a-button>
+        <el-button @click="alert">alert</el-button>
+        <el-button @click="confirm">confirm</el-button>
     </div>
 </template>
 <script>
@@ -15,13 +15,13 @@ export default {
             },
             confirm() {
                 Message.confirm('confirm');
-            },
+            }
         };
-    },
+    }
 };
 </script>
 <style lang="less" scoped>
-.ant-btn {
+.el-button {
     margin-right: 10px;
 }
 </style>

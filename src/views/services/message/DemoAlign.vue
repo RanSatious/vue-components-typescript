@@ -4,8 +4,8 @@
 <!-- `confirm`方法默认`right`对齐 -->
 <template>
     <div>
-        <a-button @click="alert">right</a-button>
-        <a-button @click="confirm">center</a-button>
+        <el-button @click="alert">right</el-button>
+        <el-button @click="confirm">center</el-button>
     </div>
 </template>
 <script>
@@ -14,19 +14,19 @@ export default {
     methods: {
         alert() {
             Message.alert('align = right', {
-                align: 'right',
+                align: 'right'
             });
         },
         confirm() {
             Message.confirm('align = center', {
-                align: 'center',
+                align: 'center'
             });
-        },
-    },
+        }
+    }
 };
 </script>
 <style lang="less" scoped>
-.ant-btn {
+.el-button {
     margin-right: 10px;
 }
 </style>

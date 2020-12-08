@@ -14,7 +14,7 @@ import { getDragResizeProps, useDragResize } from './drag-resize';
 export default defineComponent({
     name: 'ElementDragResize',
     props: {
-        ...getDragResizeProps(),
+        ...getDragResizeProps()
     },
     setup(props, context) {
         const self = ref(null);
@@ -22,9 +22,9 @@ export default defineComponent({
 
         return {
             self,
-            dragResizeStyle,
+            dragResizeStyle
         };
-    },
+    }
 });
 </script>
 <style lang="less" scoped>

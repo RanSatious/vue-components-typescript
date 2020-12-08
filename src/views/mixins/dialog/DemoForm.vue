@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a-button @click="dialog.visible = !dialog.visible">toggle form dialog</a-button>
+        <el-button @click="dialog.visible = !dialog.visible">toggle form dialog</el-button>
         <dialog-form v-model:visible="dialog.visible"
                      title="form-dialog"
                      @save="onSave"></dialog-form>
@@ -17,11 +17,11 @@ interface IFormData {
 export default {
     name: 'DemoForm',
     components: {
-        DialogForm,
+        DialogForm
     },
     setup() {
         const dialog = reactive({
-            visible: false,
+            visible: false
         });
         return {
             dialog,
@@ -31,9 +31,9 @@ export default {
                     resolve();
                     dialog.visible = false;
                 }, 1000);
-            },
+            }
         };
-    },
+    }
 };
 </script>
 <style lang="less" scoped>

@@ -12,18 +12,18 @@ import { getResizeProps, useResize } from './resize';
 export default defineComponent({
     name: 'ElementResize',
     props: {
-        ...getResizeProps(),
+        ...getResizeProps()
     },
     setup(props, context) {
         const self = ref(null);
         let { resizeStyle } = useResize(props, context, {
-            self,
+            self
         });
         return {
             resizeStyle,
-            self,
+            self
         };
-    },
+    }
 });
 </script>
 <style lang="less" scoped>

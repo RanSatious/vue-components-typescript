@@ -1,6 +1,6 @@
 import { reactive, createApp, h } from 'vue';
 import Component from './Index.vue';
-import { Button, Modal } from 'ant-design-vue';
+import { ElButton } from 'element-plus';
 import { IMessageOption, MessageType } from './type';
 
 function Message(options: IMessageOption): Promise<void> {
@@ -35,8 +35,7 @@ function Message(options: IMessageOption): Promise<void> {
                     });
             }
         });
-        instance.use(Button);
-        instance.use(Modal);
+        instance.component(ElButton.name, ElButton);
         instance.provide('data', data);
         instance.mount(host);
         data.visible = true;
